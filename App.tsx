@@ -179,7 +179,7 @@ const App: React.FC = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                 <section>
-                  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-200 mb-10">Syllabus Modules</h4>
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-200 mb-10">Syllabus & Material</h4>
                   <div className="space-y-4">
                     {selectedSubject.topics.map((t, i) => {
                       const resource = selectedSubject.resources?.[i];
@@ -188,13 +188,17 @@ const App: React.FC = () => {
                           {resource ? (
                             <a 
                               href={resource.url} 
-                              download={`${selectedSubject.name}_Module_${i+1}.pdf`}
+                              target={resource.type === 'LINK' ? '_blank' : undefined}
+                              rel={resource.type === 'LINK' ? 'noopener noreferrer' : undefined}
+                              download={resource.type === 'PDF' ? `${selectedSubject.name}_Module_${i+1}.pdf` : undefined}
                               className="block p-8 bg-slate-50 rounded-[2rem] border-2 border-transparent hover:border-blue-500/20 hover:bg-white hover:shadow-xl transition-all flex items-center gap-6"
                             >
                               <span className="text-slate-200 font-black text-2xl group-hover:text-blue-600 transition-colors">{String(i + 1).padStart(2, '0')}</span>
                               <div className="flex flex-col">
                                 <span className="font-bold text-slate-700 text-lg tracking-tight group-hover:text-slate-900">{t}</span>
-                                <span className="text-[9px] font-black text-blue-500 uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to Download PDF</span>
+                                <span className="text-[9px] font-black text-blue-500 uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                  {resource.type === 'LINK' ? 'Open External Website' : 'Click to Download PDF'}
+                                </span>
                               </div>
                             </a>
                           ) : (
@@ -242,21 +246,24 @@ const App: React.FC = () => {
                   </div>
                   
                   <div className="p-10 bg-slate-50 rounded-[3rem] border border-slate-100">
-                    <h5 className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300 mb-8">Quick Resource List</h5>
+                    <h5 className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300 mb-8">Subject Links</h5>
                     <div className="space-y-4">
                       {selectedSubject.resources && selectedSubject.resources.length > 0 ? (
                         selectedSubject.resources.map((res, i) => (
                           <a 
                             key={i} 
                             href={res.url} 
-                            download 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="pdf-resource-link w-full bg-white p-6 rounded-2xl flex items-center justify-between group hover:shadow-[0_20px_40px_rgba(59,130,246,0.1)] transition-all border border-slate-50"
                           >
                             <div className="flex items-center gap-4 text-left">
                               <div className="p-2 bg-blue-50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                {res.type === 'LINK' ? (
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                                ) : (
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                )}
                               </div>
                               <span className="font-bold text-slate-900 text-sm">{res.title}</span>
                             </div>

@@ -5,21 +5,13 @@ export const SUBJECTS: Subject[] = [
     id: 'maths',
     name: 'Mathematics for Data Science',
     code: 'BMATS301',
-    description: 'Core statistical and probabilistic foundations for advanced data analysis.',
+    description: 'Comprehensive resources and syllabus for Mathematics for Computer Science/Data Science.',
     topics: [
-      'Module 1: Probability Theory (Random Variables)', 
-      'Module 2: Joint Probability & Markov Chains', 
-      'Module 3: Statistical Inference - I (Sampling)', 
-      'Module 4: Statistical Inference - II (Distributions)', 
-      'Module 5: Design of Experiments & ANOVA'
+      'Mathematics Complete Course Material'
     ],
     color: 'bg-blue-500',
     resources: [
-      { title: 'Module 1: Probability Theory', type: 'PDF', url: '/pdfs/math-mod1.pdf' },
-      { title: 'Module 2: Joint Probability & Markov Chains', type: 'PDF', url: '/pdfs/math-mod2.pdf' },
-      { title: 'Module 3: Statistical Inference - I', type: 'PDF', url: '/pdfs/math-mod3.pdf' },
-      { title: 'Module 4: Statistical Inference - II', type: 'PDF', url: '/pdfs/math-mod4.pdf' },
-      { title: 'Module 5: Design of Experiments & ANOVA', type: 'PDF', url: '/pdfs/math-mod5.pdf' }
+      { title: 'Access Full VTU Circle Course', type: 'LINK', url: 'https://vtucircle.com/mathematics-for-computer-science-bcs301/' }
     ]
   },
   {
