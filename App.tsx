@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { User, AppView, Subject } from './types';
 import { SUBJECTS } from './constants';
@@ -233,15 +232,15 @@ const App: React.FC = () => {
                             href={res.url} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="w-full bg-white p-6 rounded-2xl flex items-center justify-between group hover:shadow-lg transition-all border border-slate-50"
+                            className="pdf-resource-link w-full bg-white p-6 rounded-2xl flex items-center justify-between group hover:shadow-[0_20px_40px_rgba(59,130,246,0.1)] transition-all border border-slate-50"
                           >
                             <div className="flex items-center gap-4 text-left">
-                              <div className="p-2 bg-blue-50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                              <div className="p-2 bg-blue-50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                               </div>
                               <span className="font-bold text-slate-900 text-sm">{res.title}</span>
                             </div>
-                            <svg className="text-slate-300 group-hover:text-slate-900 transition-colors shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            <svg className="text-slate-300 group-hover:text-blue-600 transition-all duration-300 shrink-0 transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                           </a>
                         ))
                       ) : (
