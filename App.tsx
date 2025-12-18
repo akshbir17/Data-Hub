@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { User, AppView, Subject } from './types';
 import { SUBJECTS } from './constants';
 import { AuroraBot } from './components/AuroraBot';
@@ -181,12 +181,31 @@ const App: React.FC = () => {
                 <section>
                   <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-200 mb-10">Syllabus Modules</h4>
                   <div className="space-y-4">
-                    {selectedSubject.topics.map((t, i) => (
-                      <div key={t} className="p-8 bg-slate-50 rounded-[2rem] border border-transparent hover:border-slate-100 hover:bg-white transition-all group flex items-center gap-6">
-                        <span className="text-slate-200 font-black text-2xl group-hover:text-slate-900 transition-colors">{String(i + 1).padStart(2, '0')}</span>
-                        <span className="font-bold text-slate-700 text-lg tracking-tight">{t}</span>
-                      </div>
-                    ))}
+                    {selectedSubject.topics.map((t, i) => {
+                      const resource = selectedSubject.resources?.[i];
+                      return (
+                        <div key={t} className="relative group">
+                          {resource ? (
+                            <a 
+                              href={resource.url} 
+                              download={`${selectedSubject.name}_Module_${i+1}.pdf`}
+                              className="block p-8 bg-slate-50 rounded-[2rem] border-2 border-transparent hover:border-blue-500/20 hover:bg-white hover:shadow-xl transition-all flex items-center gap-6"
+                            >
+                              <span className="text-slate-200 font-black text-2xl group-hover:text-blue-600 transition-colors">{String(i + 1).padStart(2, '0')}</span>
+                              <div className="flex flex-col">
+                                <span className="font-bold text-slate-700 text-lg tracking-tight group-hover:text-slate-900">{t}</span>
+                                <span className="text-[9px] font-black text-blue-500 uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to Download PDF</span>
+                              </div>
+                            </a>
+                          ) : (
+                            <div className="p-8 bg-slate-50 rounded-[2rem] border border-transparent flex items-center gap-6 opacity-60">
+                              <span className="text-slate-200 font-black text-2xl">{String(i + 1).padStart(2, '0')}</span>
+                              <span className="font-bold text-slate-700 text-lg tracking-tight">{t}</span>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 </section>
 
@@ -223,13 +242,14 @@ const App: React.FC = () => {
                   </div>
                   
                   <div className="p-10 bg-slate-50 rounded-[3rem] border border-slate-100">
-                    <h5 className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300 mb-8">Access Resources</h5>
+                    <h5 className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300 mb-8">Quick Resource List</h5>
                     <div className="space-y-4">
                       {selectedSubject.resources && selectedSubject.resources.length > 0 ? (
                         selectedSubject.resources.map((res, i) => (
                           <a 
                             key={i} 
                             href={res.url} 
+                            download 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="pdf-resource-link w-full bg-white p-6 rounded-2xl flex items-center justify-between group hover:shadow-[0_20px_40px_rgba(59,130,246,0.1)] transition-all border border-slate-50"

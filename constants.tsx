@@ -1,4 +1,3 @@
-
 import { Subject } from './types';
 
 export const SUBJECTS: Subject[] = [
@@ -7,13 +6,19 @@ export const SUBJECTS: Subject[] = [
     name: 'Mathematics for Data Science',
     code: 'BMATS301',
     description: 'Core statistical and probabilistic foundations for advanced data analysis.',
-    topics: ['Probability Theory', 'Markov Chains', 'Statistical Inference', 'ANOVA'],
+    topics: [
+      'Module 1: Probability Theory (Random Variables)', 
+      'Module 2: Joint Probability & Markov Chains', 
+      'Module 3: Statistical Inference - I (Sampling)', 
+      'Module 4: Statistical Inference - II (Distributions)', 
+      'Module 5: Design of Experiments & ANOVA'
+    ],
     color: 'bg-blue-500',
     resources: [
-      { title: 'Module 1: Probability Theory (Random Variables)', type: 'PDF', url: '/pdfs/math-mod1.pdf' },
+      { title: 'Module 1: Probability Theory', type: 'PDF', url: '/pdfs/math-mod1.pdf' },
       { title: 'Module 2: Joint Probability & Markov Chains', type: 'PDF', url: '/pdfs/math-mod2.pdf' },
-      { title: 'Module 3: Statistical Inference - I (Sampling)', type: 'PDF', url: '/pdfs/math-mod3.pdf' },
-      { title: 'Module 4: Statistical Inference - II (Distributions)', type: 'PDF', url: '/pdfs/math-mod4.pdf' },
+      { title: 'Module 3: Statistical Inference - I', type: 'PDF', url: '/pdfs/math-mod3.pdf' },
+      { title: 'Module 4: Statistical Inference - II', type: 'PDF', url: '/pdfs/math-mod4.pdf' },
       { title: 'Module 5: Design of Experiments & ANOVA', type: 'PDF', url: '/pdfs/math-mod5.pdf' }
     ]
   },
