@@ -97,16 +97,16 @@ const App: React.FC = () => {
             <span className="font-black text-2xl tracking-tighter text-slate-900">Hub.</span>
           </div>
 
-          <div className="flex items-center gap-12">
+          <div className="flex items-center gap-12 text-xs">
             {[
               { id: AppView.DASHBOARD, label: "Home" },
               { id: AppView.AKSHBIR_SECTION, label: "Innovation" },
-              { id: AppView.DEPLOYMENT_GUIDE, label: "APK Guide" }
+              { id: AppView.DEPLOYMENT_GUIDE, label: "Hosting" }
             ].map(link => (
               <button 
                 key={link.id}
                 onClick={() => setView(link.id)} 
-                className={`text-[10px] uppercase tracking-[0.3em] font-black transition-all ${view === link.id ? 'text-slate-900' : 'text-slate-300 hover:text-slate-500'}`}
+                className={`uppercase tracking-[0.3em] font-black transition-all ${view === link.id ? 'text-slate-900' : 'text-slate-300 hover:text-slate-500'}`}
               >
                 {link.label}
               </button>
@@ -224,22 +224,28 @@ const App: React.FC = () => {
                   </div>
                   
                   <div className="p-10 bg-slate-50 rounded-[3rem] border border-slate-100">
-                    <h5 className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300 mb-8">Resources</h5>
+                    <h5 className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-300 mb-8">Access Resources</h5>
                     <div className="space-y-4">
                       {selectedSubject.resources && selectedSubject.resources.length > 0 ? (
                         selectedSubject.resources.map((res, i) => (
-                          <button key={i} className="w-full bg-white p-6 rounded-2xl flex items-center justify-between group hover:shadow-lg transition-all border border-slate-50">
-                            <div className="flex items-center gap-4">
+                          <a 
+                            key={i} 
+                            href={res.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="w-full bg-white p-6 rounded-2xl flex items-center justify-between group hover:shadow-lg transition-all border border-slate-50"
+                          >
+                            <div className="flex items-center gap-4 text-left">
                               <div className="p-2 bg-blue-50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                               </div>
                               <span className="font-bold text-slate-900 text-sm">{res.title}</span>
                             </div>
-                            <svg className="text-slate-300 group-hover:text-slate-900 transition-colors" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                          </button>
+                            <svg className="text-slate-300 group-hover:text-slate-900 transition-colors shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                          </a>
                         ))
                       ) : (
-                        <p className="text-xs text-slate-400 font-medium italic p-4">No specific resources listed yet for this subject.</p>
+                        <p className="text-xs text-slate-400 font-medium italic p-4 text-center">Resources being digitized...</p>
                       )}
                     </div>
                   </div>

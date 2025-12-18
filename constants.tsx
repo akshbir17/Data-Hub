@@ -6,23 +6,23 @@ export const SUBJECTS: Subject[] = [
     id: 'maths',
     name: 'Mathematics for Data Science',
     code: 'BMATS301',
-    description: 'Foundational mathematics including Probability Theory, Joint Probability, and Statistical Inference.',
+    description: 'Core statistical and probabilistic foundations for advanced data analysis.',
     topics: ['Probability Theory', 'Markov Chains', 'Statistical Inference', 'ANOVA'],
     color: 'bg-blue-500',
     resources: [
-      { title: 'Module 1: Probability Theory (Random Variables)', type: 'PDF', url: '#' },
-      { title: 'Module 2: Joint Probability & Markov Chains', type: 'PDF', url: '#' },
-      { title: 'Module 3: Statistical Inference - I (Sampling)', type: 'PDF', url: '#' },
-      { title: 'Module 4: Statistical Inference - II (Distributions)', type: 'PDF', url: '#' },
-      { title: 'Module 5: Design of Experiments & ANOVA', type: 'PDF', url: '#' }
+      { title: 'Module 1: Probability Theory (Random Variables)', type: 'PDF', url: '/pdfs/math-mod1.pdf' },
+      { title: 'Module 2: Joint Probability & Markov Chains', type: 'PDF', url: '/pdfs/math-mod2.pdf' },
+      { title: 'Module 3: Statistical Inference - I (Sampling)', type: 'PDF', url: '/pdfs/math-mod3.pdf' },
+      { title: 'Module 4: Statistical Inference - II (Distributions)', type: 'PDF', url: '/pdfs/math-mod4.pdf' },
+      { title: 'Module 5: Design of Experiments & ANOVA', type: 'PDF', url: '/pdfs/math-mod5.pdf' }
     ]
   },
   {
     id: 'ddco',
     name: 'Digital Design & Computer Org.',
     code: 'BCS302',
-    description: 'Understanding the hardware layer of computing, from logic gates to full system architecture.',
-    topics: ['Logic Gates', 'Verilog HDL', 'Instruction Set Architecture', 'Memory Hierarchy'],
+    description: 'Hardware layer of computing, from logic gates to full system architecture.',
+    topics: ['Logic Gates', 'Verilog HDL', 'ISA', 'Memory Hierarchy'],
     color: 'bg-purple-500',
     resources: [
       { title: 'Computer Architecture Notes', type: 'PDF', url: '#' }
@@ -32,8 +32,8 @@ export const SUBJECTS: Subject[] = [
     id: 'dsa',
     name: 'Data Structures & Algorithms',
     code: 'BCS305',
-    description: 'The core of problem solving. Learn to manage data efficiently and build high-performance software.',
-    topics: ['Graph Theory', 'Dynamic Programming', 'B-Trees', 'Sorting & Searching'],
+    description: 'Efficiency in problem solving through optimized data management.',
+    topics: ['Graph Theory', 'Dynamic Programming', 'B-Trees', 'Sorting'],
     color: 'bg-emerald-500',
     resources: [
       { title: 'DSA Master Sheet', type: 'PDF', url: '#' }
@@ -43,7 +43,7 @@ export const SUBJECTS: Subject[] = [
     id: 'os',
     name: 'Operating Systems',
     code: 'BCS303',
-    description: 'Exploration of system software that manages hardware resources and provides common services.',
+    description: 'Resource management and kernel-level service implementations.',
     topics: ['Process Scheduling', 'Virtual Memory', 'Deadlocks', 'File Systems'],
     color: 'bg-orange-500',
     resources: [
@@ -54,8 +54,8 @@ export const SUBJECTS: Subject[] = [
     id: 'r-lang',
     name: 'R Programming',
     code: 'BDS306C',
-    description: 'A language and environment for statistical computing and graphics, widely used for data analysis.',
-    topics: ['Tidyverse', 'ggplot2', 'Statistical Modeling', 'Shiny Apps'],
+    description: 'Statistical computing environment for high-end data visualization.',
+    topics: ['Tidyverse', 'ggplot2', 'Statistical Modeling', 'Shiny'],
     color: 'bg-indigo-500',
     resources: [
       { title: 'R Statistical Analysis Guide', type: 'PDF', url: '#' }
