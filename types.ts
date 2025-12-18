@@ -1,4 +1,3 @@
-
 export interface User {
   usn: string;
 }
@@ -28,6 +27,5 @@ export enum AppView {
   LOGIN = 'LOGIN',
   DASHBOARD = 'DASHBOARD',
   SUBJECT_DETAIL = 'SUBJECT_DETAIL',
-  AKSHBIR_SECTION = 'AKSHBIR_SECTION',
-  DEPLOYMENT_GUIDE = 'DEPLOYMENT_GUIDE'
+  AKSHBIR_SECTION = 'AKSHBIR_SECTION'
 }

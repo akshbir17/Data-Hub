@@ -3,7 +3,6 @@ import { User, AppView, Subject } from './types';
 import { SUBJECTS } from './constants';
 import { AuroraBot } from './components/AuroraBot';
 import { AkshbirSection } from './components/AkshbirSection';
-import { DeploymentGuide } from './components/DeploymentGuide';
 import { getSubjectInsights } from './services/geminiService';
 
 const App: React.FC = () => {
@@ -99,8 +98,7 @@ const App: React.FC = () => {
           <div className="flex items-center gap-12 text-xs">
             {[
               { id: AppView.DASHBOARD, label: "Home" },
-              { id: AppView.AKSHBIR_SECTION, label: "Innovation" },
-              { id: AppView.DEPLOYMENT_GUIDE, label: "Hosting" }
+              { id: AppView.AKSHBIR_SECTION, label: "Innovation" }
             ].map(link => (
               <button 
                 key={link.id}
@@ -282,7 +280,6 @@ const App: React.FC = () => {
         )}
 
         {view === AppView.AKSHBIR_SECTION && <AkshbirSection />}
-        {view === AppView.DEPLOYMENT_GUIDE && <DeploymentGuide />}
       </main>
 
       <AuroraBot />
